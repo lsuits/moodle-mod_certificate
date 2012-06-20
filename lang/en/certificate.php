@@ -65,6 +65,7 @@ Force Download: Opens the browser file download window.
 Email Certificate: Choosing this option sends the certificate to the student as an email attachment.
 After a user receives their certificate, if they click on the certificate link from the course homepage, they will see the date they received their certificate and will be able to review their received certificate.';
 $string['designoptions'] = 'Design Options';
+$string['orientationoptions'] = 'Orientation';
 $string['download'] = 'Force download';
 $string['emailcertificate'] = 'Email (Must also choose save!)';
 $string['emailothers'] = 'Email Others';
@@ -126,7 +127,8 @@ $string['openemail'] = 'Click the button below and your certificate will be sent
 $string['openwindow'] = 'Click the button below to open your certificate in a new browser window.';
 $string['or'] = 'Or';
 $string['orientation'] = 'Orientation';
-$string['orientation_help'] = 'Choose whether you want your certificate orientation to be portrait or landscape.';
+$string['orientationbox'] = 'Change Orientation';
+$string['orientation_help'] = 'Warning: Changing orientation with standard borders will distort the graphics. Please select a portrait border before creating a portrait certificate.';
 $string['pluginadministration'] = 'Certificate administration';
 $string['pluginname'] = 'Certificate';
 $string['portrait'] = 'Portrait';

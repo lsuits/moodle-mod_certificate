@@ -20,7 +20,7 @@ if ($certificate->orientation == 'L') {
     $sealy = 425;
     $sigx = 130;
     $sigy = 440;
-    $custx = 133;
+    $custx = 130;
     $custy = 440;
     $wmarkx = 100;
     $wmarky = 90;
@@ -36,9 +36,9 @@ if ($certificate->orientation == 'L') {
     $y = 170;
     $sealx = 440;
     $sealy = 590;
-    $sigx = 85;
+    $sigx = 105;
     $sigy = 580;
-    $custx = 88;
+    $custx = 105;
     $custy = 580;
     $wmarkx = 78;
     $wmarky = 130;
@@ -62,8 +62,9 @@ certificate_print_image($pdf, $certificate, CERT_IMAGE_SEAL, $sealx, $sealy, '',
 certificate_print_image($pdf, $certificate, CERT_IMAGE_SIGNATURE, $sigx, $sigy, '', '');
 
 // Add text
-$pdf->SetTextColor(0, 0, 120);
-certificate_print_text($pdf, $x, $y, 'C', 'Helvetica', '', 30, get_string('title', 'certificate'));
+if ($certificate->orientation == 'L') {
+$pdf->SetTextColor(70, 70, 124);
+certificate_print_text($pdf, $x, $y, 'C', 'Helvetica', '', 35, get_string('title', 'certificate'));
 $pdf->SetTextColor(0, 0, 0);
 certificate_print_text($pdf, $x, $y + 55, 'C', 'Times', '', 20, get_string('certify', 'certificate'));
 certificate_print_text($pdf, $x, $y + 105, 'C', 'Helvetica', '', 30, fullname($USER));
@@ -74,6 +75,20 @@ certificate_print_text($pdf, $x, $y + 283, 'C', 'Times', '', 10, certificate_get
 certificate_print_text($pdf, $x, $y + 311, 'C', 'Times', '', 10, certificate_get_outcome($certificate, $course));
 certificate_print_text($pdf, $x, $y + 339, 'C', 'Times', '', 10, certificate_get_credit_hours($certificate));
 certificate_print_text($pdf, $x, $codey, 'C', 'Times', '', 10, certificate_get_code($certificate, $certrecord));
+} else {
+$pdf->SetTextColor(70, 70, 124);
+certificate_print_text($pdf, $x, $y, 'C', 'Helvetica', '', 25, get_string('title', 'certificate'));
+$pdf->SetTextColor(0, 0, 0);
+certificate_print_text($pdf, $x, $y + 55, 'C', 'Times', '', 20, get_string('certify', 'certificate'));
+certificate_print_text($pdf, $x, $y + 105, 'C', 'Helvetica', '', 30, fullname($USER));
+certificate_print_text($pdf, $x, $y + 155, 'C', 'Helvetica', '', 20, get_string('statement', 'certificate'));
+certificate_print_text($pdf, $x, $y + 205, 'C', 'Helvetica', '', 20, $course->fullname);
+certificate_print_text($pdf, $x, $y + 255, 'C', 'Helvetica', '', 14, certificate_get_date($certificate, $certrecord, $course));
+certificate_print_text($pdf, $x, $y + 283, 'C', 'Times', '', 10, certificate_get_grade($certificate, $course));
+certificate_print_text($pdf, $x, $y + 311, 'C', 'Times', '', 10, certificate_get_outcome($certificate, $course));
+certificate_print_text($pdf, $x, $y + 339, 'C', 'Times', '', 10, certificate_get_credit_hours($certificate));
+certificate_print_text($pdf, $x, $codey, 'C', 'Times', '', 10, certificate_get_code($certificate, $certrecord));
+}
 $i = 0;
 if ($certificate->printteacher) {
     $context = get_context_instance(CONTEXT_MODULE, $cm->id);

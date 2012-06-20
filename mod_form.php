@@ -101,14 +101,17 @@ class mod_certificate_mod_form extends moodleform_mod {
 
         // Design Options
         $mform->addElement('header', 'designoptions', get_string('designoptions', 'certificate'));
-        $mform->addElement('select', 'certificatetype', get_string('certificatetype', 'certificate'), certificate_types());
-        $mform->setDefault('certificatetype', 'A4_non_embedded');
-        $mform->addHelpButton('certificatetype', 'certificatetype', 'certificate');
-
         $orientation = array( 'L' => get_string('landscape', 'certificate'), 'P' => get_string('portrait', 'certificate'));
+        //$mform->addElement('checkbox', 'orientationbox', get_string('orientationbox', 'certificate'));
+        //$mform->addHelpButton('orientationbox', 'orientation', 'certificate');
         $mform->addElement('select', 'orientation', get_string('orientation', 'certificate'), $orientation);
         $mform->setDefault('orientation', 'landscape');
         $mform->addHelpButton('orientation', 'orientation', 'certificate');
+        //$mform->disabledIf('orientation', 'orientationbox');
+
+        $mform->addElement('select', 'certificatetype', get_string('certificatetype', 'certificate'), certificate_types());
+        $mform->setDefault('certificatetype', 'letter_embedded');
+        $mform->addHelpButton('certificatetype', 'certificatetype', 'certificate');
 
         $mform->addElement('select', 'borderstyle', get_string('borderstyle', 'certificate'), certificate_get_images(CERT_IMAGE_BORDER));
         $mform->setDefault('borderstyle', 0);
