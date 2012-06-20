@@ -23,7 +23,7 @@ if ($certificate->orientation == 'L') {
     $sigy = 440;
     $custx = 130;
     $custy = 440;
-    $wmarkx = 200;
+    $wmarkx = 190;
     $wmarky = 90;
     $wmarkw = 420;
     $wmarkh = 420;
