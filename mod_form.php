@@ -104,12 +104,9 @@ class mod_certificate_mod_form extends moodleform_mod {
         //Orientation Options
         $mform->addElement('header', 'orientationoptions', get_string('orientationoptions', 'certificate'));
         $orientation = array( 'L' => get_string('landscape', 'certificate'), 'P' => get_string('portrait', 'certificate'));
-        $mform->addElement('checkbox', 'orientationbox', get_string('orientationbox', 'certificate'));
-        $mform->addHelpButton('orientationbox', 'orientation', 'certificate');
         $mform->addElement('select', 'orientation', get_string('orientation', 'certificate'), $orientation);
         $mform->setDefault('orientation', 'landscape');
         $mform->addHelpButton('orientation', 'orientation', 'certificate');
-        $mform->disabledIf('orientation', 'orientationbox');
 
         $mform->addElement('select', 'borderstyle', get_string('borderstyle', 'certificate'), certificate_get_images(CERT_IMAGE_BORDER));
         $mform->setDefault('borderstyle', 0);
