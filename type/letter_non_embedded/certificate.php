@@ -22,9 +22,9 @@ if ($certificate->orientation == 'L') {
     $sigy = 440;
     $custx = 130;
     $custy = 440;
-    $wmarkx = 100;
+    $wmarkx = 190;
     $wmarky = 90;
-    $wmarkw = 600;
+    $wmarkw = 420;
     $wmarkh = 420;
     $brdrx = 0;
     $brdry = 0;
@@ -40,10 +40,10 @@ if ($certificate->orientation == 'L') {
     $sigy = 580;
     $custx = 105;
     $custy = 580;
-    $wmarkx = 78;
-    $wmarky = 130;
-    $wmarkw = 450;
-    $wmarkh = 480;
+    $wmarkx = 84;
+    $wmarky = 140;
+    $wmarkw = 420;
+    $wmarkh = 420;
     $brdrx = 10;
     $brdry = 10;
     $brdrw = 594;
@@ -63,7 +63,7 @@ certificate_print_image($pdf, $certificate, CERT_IMAGE_SIGNATURE, $sigx, $sigy, 
 
 // Add text
 if ($certificate->orientation == 'L') {
-$pdf->SetTextColor(70, 70, 124);
+$pdf->SetTextColor(70, 29, 124);
 certificate_print_text($pdf, $x, $y, 'C', 'Helvetica', '', 35, get_string('title', 'certificate'));
 $pdf->SetTextColor(0, 0, 0);
 certificate_print_text($pdf, $x, $y + 55, 'C', 'Times', '', 20, get_string('certify', 'certificate'));
@@ -76,7 +76,7 @@ certificate_print_text($pdf, $x, $y + 311, 'C', 'Times', '', 10, certificate_get
 certificate_print_text($pdf, $x, $y + 339, 'C', 'Times', '', 10, certificate_get_credit_hours($certificate));
 certificate_print_text($pdf, $x, $codey, 'C', 'Times', '', 10, certificate_get_code($certificate, $certrecord));
 } else {
-$pdf->SetTextColor(70, 70, 124);
+$pdf->SetTextColor(70, 29, 124);
 certificate_print_text($pdf, $x, $y, 'C', 'Helvetica', '', 25, get_string('title', 'certificate'));
 $pdf->SetTextColor(0, 0, 0);
 certificate_print_text($pdf, $x, $y + 55, 'C', 'Times', '', 20, get_string('certify', 'certificate'));
