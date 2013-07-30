@@ -9,6 +9,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['certificate:addinstance'] = 'Add a Certificate';
 $string['addlinklabel'] = 'Add another linked activity option';
 $string['addlinktitle'] = 'Click to add another linked activity option';
 $string['areaintro'] = 'Certificate introduction';
