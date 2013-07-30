@@ -176,3 +176,4 @@ $string['verifycertificate'] = 'Verify Certificate';
 $string['viewcertificateviews'] = 'View {$a} issued certificates';
 $string['viewed'] = 'You received this certificate on:';
 $string['viewtranscript'] = 'View Certificates';
+$string['certificate:addinstance'] = 'Add the certificate module to your course';
