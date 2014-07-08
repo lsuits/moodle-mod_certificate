@@ -1394,3 +1394,17 @@ function certificate_generate_code() {
     return (random_string(10));
 }
 
+/**
+ * cert_add_to_log is a quick hack to avoid add_to_log debugging
+ */
+function cert_add_to_log($courseid, $module, $action, $url='', $info='', $cm=0, $user=0) {
+    if (function_exists('get_log_manager')) {
+        $manager = get_log_manager();
+        $manager->legacy_add_to_log($courseid, $module, $action, $url, $info, $cm, $user);
+    } else if (function_exists('add_to_log')) {
+        add_to_log($courseid, $module, $action, $url, $info, $cm, $user);
+    }
+}
+
+
+

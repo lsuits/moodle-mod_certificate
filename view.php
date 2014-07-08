@@ -32,7 +32,7 @@ $context = context_module::instance($cm->id);
 require_capability('mod/certificate:view', $context);
 
 // log update
-add_to_log($course->id, 'certificate', 'view', "view.php?id=$cm->id", $certificate->id, $cm->id);
+cert_add_to_log($course->id, 'certificate', 'view', "view.php?id=$cm->id", $certificate->id, $cm->id);
 $completion=new completion_info($course);
 $completion->set_module_viewed($cm);
 
@@ -91,7 +91,7 @@ if (empty($action)) { // Not displaying PDF
     echo html_writer::tag('p', $str, array('style' => 'text-align:center'));
     $linkname = get_string('getcertificate', 'certificate');
     // Add to log, only if we are reissuing
-    add_to_log($course->id, 'certificate', 'view', "view.php?id=$cm->id", $certificate->id, $cm->id);
+    cert_add_to_log($course->id, 'certificate', 'view', "view.php?id=$cm->id", $certificate->id, $cm->id);
 
     $link = new moodle_url('/mod/certificate/view.php?id='.$cm->id.'&action=get');
     $button = new single_button($link, $linkname);
