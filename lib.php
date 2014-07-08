@@ -62,6 +62,7 @@ function certificate_add_instance($certificate) {
         $event->eventtype = 'course';
         $event->modulename  = 'certificate';
         $event->instance = $certificateid;
+        $event->timestart = time();
 
         add_event($event);
     }
